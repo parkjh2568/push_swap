@@ -6,7 +6,7 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/16 11:12:04 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/16 11:40:54 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ P_NAME	=	push_swap
 
 
 
-C_SRCS	=	checker.c
+C_SRCS	=	./utils/*.c checker.c
 
-P_SRCS	=
+P_SRCS	=	./utils/*.c
 
 
 

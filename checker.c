@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/16 10:57:22 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/16 11:36:40 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	reset_list(t_list *data)
 {
 	data->content = 0;
 	data->next = NULL;
-}
-
-void	ft_delete(void *str)
-{
-	(void *)str;
 }
 
 void	check_start(t_list *a_start)
