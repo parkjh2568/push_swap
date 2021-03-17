@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 17:06:32 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 18:08:28 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 18:17:55 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,25 @@ void	command_solo_p(t_data **data1, t_data **data2)
 			(*data2)->next = temp1;
 			(*data2)->next->next = NULL;
 		}
+	}
+}
+
+void	command_solo_r(t_data **data)
+{
+	t_data	*temp1;
+	t_data	*temp2;
+	int		len;
+
+
+	len = ft_lstlen(*data);
+	if (len > 1)
+	{
+		temp1 = (*data)->next;
+		(*data)->next = (*data)->next->next;
+		temp2 = (*data)->next;
+		while(temp2->next)
+			temp2 = temp2->next;
+		temp2->next = temp1;
+		temp1->next = NULL;
 	}
 }
