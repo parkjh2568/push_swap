@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 16:50:50 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:54:00 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 17:00:49 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_error(t_data	*a_start, t_data *b_start)
 {
 	ft_lstfree(&a_start);
 	ft_lstfree(&b_start);
-	write(1,"error\n",6);
-	exit();
+	write(1,"Error\n",6);
+	exit(1);
 }
