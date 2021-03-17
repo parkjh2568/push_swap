@@ -6,7 +6,7 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/16 11:40:54 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/17 15:53:14 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ P_SRCS	=	./utils/*.c
 
 
 
-C_OBJS	=	${C_SRCS: .c=.o}
-P_OBJS	=	${P_SRCS: .c=.o}
+C_OBJS	=	${C_SRCS:.c=.o}
+P_OBJS	=	${P_SRCS:.c=.o}
 
 
 
