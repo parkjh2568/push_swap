@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_p_algo.h                                         :+:      :+:    :+:   */
+/*   is_available.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:56:52 by junhypar         ###   ########.fr       */
+/*   Created: 2021/03/17 16:42:47 by junhypar          #+#    #+#             */
+/*   Updated: 2021/03/17 16:49:01 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_P_ALGO_H
-# define C_P_ALGO_H
-# include "./libft/libft.h"
+#include "c_p_algo.h"
 
-typedef struct		s_data
+int		is_available(t_data	*a_start)
 {
-	char			*num;
-	struct s_data	*next;
-}					t_data;
+	t_data	*temp;
+	int		i;
+	int		flag;
 
-void				ft_lstreset(t_data *data);
-void				ft_lstfree(t_data **lst);
-t_data				*ft_lstnew_chardata(char *data);
-int					is_available(t_data *a_start);
-void				ft_error(t_data *a_start, t_data *b_start);
-#endif
+	temp = a_start->next;
+	flag = 0;
+	while(temp != NULL && flag == 0)
+	{
+		i = 0;
+		while(temp->num[i] && flag == 0)
+		{
+			if (num[i] < '0' || num[i] > '9')
+				flag = -1;
+			i++;
+		}
+		temp = temp->next;
+	}
+	return (flag);
+}

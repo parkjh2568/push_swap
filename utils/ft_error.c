@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_p_algo.h                                         :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:56:52 by junhypar         ###   ########.fr       */
+/*   Created: 2021/03/17 16:50:50 by junhypar          #+#    #+#             */
+/*   Updated: 2021/03/17 16:54:00 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_P_ALGO_H
-# define C_P_ALGO_H
-# include "./libft/libft.h"
+#include "../c_p_algo.h"
 
-typedef struct		s_data
+void	ft_error(t_data	*a_start, t_data *b_start)
 {
-	char			*num;
-	struct s_data	*next;
-}					t_data;
-
-void				ft_lstreset(t_data *data);
-void				ft_lstfree(t_data **lst);
-t_data				*ft_lstnew_chardata(char *data);
-int					is_available(t_data *a_start);
-void				ft_error(t_data *a_start, t_data *b_start);
-#endif
+	ft_lstfree(&a_start);
+	ft_lstfree(&b_start);
+	write(1,"error\n",6);
+	exit();
+}
