@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:11:16 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:35:11 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ void	check_start(t_data *a_start)
 	int		len;
 
 	temp = a_start->next;
-	while(temp)
+	while(temp != NULL)
 	{
 		len = ft_strlen(temp->num);
 		write(1,temp->num,len);
+		write(1,"\n",1);
 		temp = temp->next;
 	}
 	ft_lstfree(&a_start);
@@ -44,7 +45,7 @@ int		main(int count, char *data[])
 	temp = &a_start;
 	while(++i < count)
 	{
-		temp->next = ft_lstnew_data(ft_strdup(data[i]));
+		temp->next = ft_lstnew_chardata(ft_strdup(data[i]));
 		temp = temp->next;
 	}
 	check_start(&a_start);

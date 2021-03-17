@@ -6,22 +6,23 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/17 16:17:07 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/17 16:28:43 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+U_NAME	=	utils
 C_NAME	=	checker
 P_NAME	=	push_swap
 
 
-U_OBJS	=	./utils/ft_lstfree.c ./utils/ft_lstnew_chardata.c
+U_SRCS	=	./utils/ft_lstfree.c ./utils/ft_lstnew_chardata.c
 
 C_SRCS	=	checker.c
 
 P_SRCS	=
 
 
-
+U_OBJS	=	${U_SRCS:.c=.o}
 C_OBJS	=	${C_SRCS:.c=.o}
 P_OBJS	=	${P_SRCS:.c=.o}
 
@@ -39,18 +40,20 @@ DILIBFT	=	./libft
 LIBFT	=	./libft/libft.a
 
 
-all:		${MKLIBFT} ${C_NAME} #${P_NAME}
+all:		${MKLIBFT} ${U_NAME} ${C_NAME} #${P_NAME}
 
 
 .c.o:
 			${CC} -c $< -o ${<:.c=.o}
 
 
-${MKLIBFT}:	${U_OBJS}
+${MKLIBFT}:
 			$(MAKE) bonus -C ${DILIBFT}
+
+
+${U_NAME}:	${U_OBJS}
 			cp ${LIBFT} ${U_LIB}
 			ar rc ${U_LIB} ${U_OBJS}
-
 
 ${C_NAME}:	${C_OBJS}
 			cp ${U_LIB} ${C_LIB}
@@ -71,7 +74,7 @@ clean:
 			rm -f ${U_OBJS}
 			rm -f ${P_LIB}
 			rm -f ${C_LIB}
-			rm =f ${U_LIB}
+			rm -f ${U_LIB}
 
 
 fclean:		clean

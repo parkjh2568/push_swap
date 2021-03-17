@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:11:39 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:25:14 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ typedef struct		s_data
 }					t_data;
 
 void				ft_lstfree(t_data **lst);
-t_data				ft_lstnew_chardata(char *data);
+t_data				*ft_lstnew_chardata(char *data);
 #endif
