@@ -6,27 +6,126 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 17:03:57 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 18:12:19 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c_p_algo.h"
 
-void	test(t_data *a_start)
+void	test(t_data *a_start, t_data *b_start)
 {
-	t_data	*temp;
+	t_data	*temp1;
+	t_data	*temp2;
+	int		i;
+	int		j;
 
-	temp = a_start->next;
-	while(temp)
+	j = 0;
+	temp1 = a_start->next;
+	temp2 = b_start->next;
+	i = ft_lstlen(a_start);
+	if (i < ft_lstlen(b_start))
+		i = ft_lstlen(b_start);
+	printf("\t\ta\t|\tb\n");
+	printf("\t|---------------|------------\n");
+	while(j < i)
 	{
-		printf("%s---\n",temp->num);
-		temp = temp->next;
+		printf("%d\t|\t",j + 1);
+		if(temp1)
+		{
+			printf("%s\t|\t",temp1->num);
+			temp1 = temp1->next;
+		}
+		else
+		{
+			printf("\t|\t");
+		}
+		if(temp2)
+		{
+			printf("%s",temp2->num);
+			temp2 = temp2->next;
+		}
+		printf("\n");
+		j++;
 	}
 }
 
 void	input_algo_command(t_data *a_start, t_data *b_start)
 {
+	command_solo_s(&a_start);
+	printf("sa\n");
+	test(a_start, b_start);
+	printf("\n\n");
 
+
+	printf("pa\n");
+	command_solo_p(&b_start, &a_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pa\n");
+	command_solo_p(&b_start, &a_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pa\n");
+	command_solo_p(&b_start, &a_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+
+
+	printf("pb\n");
+	command_solo_p(&a_start, &b_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pb\n");
+	command_solo_p(&a_start, &b_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	command_solo_s(&b_start);
+	printf("sb\n");
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pb\n");
+	command_solo_p(&a_start, &b_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pb\n");
+	command_solo_p(&a_start, &b_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	command_solo_s(&b_start);
+	printf("sb\n");
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pb\n");
+	command_solo_p(&a_start, &b_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pa\n");
+	command_solo_p(&b_start, &a_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	command_solo_s(&b_start);
+	printf("sb\n");
+	test(a_start, b_start);
+	printf("\n\n");
+
+	printf("pa\n");
+	command_solo_p(&b_start, &a_start);
+	test(a_start, b_start);
+	printf("\n\n");
+
+	ft_lstfree(&a_start);
+	ft_lstfree(&b_start);
 }
 
 void	check_start(t_data *a_start)
@@ -38,9 +137,9 @@ void	check_start(t_data *a_start)
 	flag = is_available(a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);
+	test(a_start, &b_start);
+	printf("\n");
 	input_algo_command(a_start, &b_start);
-	test(a_start);
-	ft_lstfree(&a_start);
 }
 
 int		main(int count, char *data[])
