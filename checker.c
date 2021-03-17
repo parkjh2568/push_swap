@@ -6,37 +6,37 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/16 11:36:40 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:11:16 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c_p_algo.h"
 
-void	reset_list(t_list *data)
+void	reset_list(t_data *data)
 {
-	data->content = 0;
+	data->num = 0;
 	data->next = NULL;
 }
 
-void	check_start(t_list *a_start)
+void	check_start(t_data *a_start)
 {
-	t_list	*temp;
+	t_data	*temp;
 	int		len;
 
 	temp = a_start->next;
 	while(temp)
 	{
-		len = ft_strlen(temp->content);
-		write(1,temp->content,len);
+		len = ft_strlen(temp->num);
+		write(1,temp->num,len);
 		temp = temp->next;
 	}
-	ft_lstclear(&a_start, ft_delete);
+	ft_lstfree(&a_start);
 }
 
 int		main(int count, char *data[])
 {
-	t_list	a_start;
-	t_list	*temp;
+	t_data	a_start;
+	t_data	*temp;
 	int		i;
 
 	i = 0;
@@ -44,7 +44,7 @@ int		main(int count, char *data[])
 	temp = &a_start;
 	while(++i < count)
 	{
-		temp->next = ft_lstnew(data[i]);
+		temp->next = ft_lstnew_data(ft_strdup(data[i]));
 		temp = temp->next;
 	}
 	check_start(&a_start);
