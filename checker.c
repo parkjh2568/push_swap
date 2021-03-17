@@ -6,17 +6,11 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:35:11 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:40:36 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c_p_algo.h"
-
-void	reset_list(t_data *data)
-{
-	data->num = 0;
-	data->next = NULL;
-}
 
 void	check_start(t_data *a_start)
 {
@@ -41,7 +35,7 @@ int		main(int count, char *data[])
 	int		i;
 
 	i = 0;
-	reset_list(&a_start);
+	ft_lstreset(&a_start);
 	temp = &a_start;
 	while(++i < count)
 	{
