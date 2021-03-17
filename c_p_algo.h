@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 18:18:25 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 18:28:44 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void				ft_error(t_data *a_start, t_data *b_start);
 void				command_solo_s(t_data **data);
 void				command_solo_p(t_data **data1, t_data **data2);
 void				command_solo_r(t_data **data);
+void				command_solo_rr(t_data **data);
 #endif
