@@ -6,7 +6,7 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/17 16:56:01 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/17 17:22:32 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ P_NAME	=	push_swap
 
 U_SRCS	=	./utils/ft_lstfree.c ./utils/ft_lstnew_chardata.c \
 			./utils/ft_lstreset.c ./utils/is_available.c \
-			./utils/ft_error.c
+			./utils/ft_error.c	./utils/ft_lstlen.c \
+			./utils/ft_command_solo.c
 
 C_SRCS	=	checker.c
 

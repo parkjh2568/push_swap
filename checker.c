@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:55:31 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/17 17:03:57 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,21 @@ void	test(t_data *a_start)
 	}
 }
 
+void	input_algo_command(t_data *a_start, t_data *b_start)
+{
+
+}
+
 void	check_start(t_data *a_start)
 {
 	int		flag;
+	t_data	b_start;
 
+	ft_lstreset(&b_start);
 	flag = is_available(a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);
-	
+	input_algo_command(a_start, &b_start);
 	test(a_start);
 	ft_lstfree(&a_start);
 }
