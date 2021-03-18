@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 16:37:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:39:01 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:29:20 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 void	ft_lstreset(t_data *data)
 {
 	data->num = 0;
+	data->lnum = 0;
 	data->next = NULL;
 }

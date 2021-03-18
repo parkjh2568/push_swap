@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 12:12:14 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 15:10:58 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 16:11:07 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 int			is_sorted(t_data *data_start)
 {
-	int		num1;
-	int		num2;
 	t_data	*data;
+	t_data	*data2;
 	int		flag;
 
 	flag = OK;
 	if (data_start->next != NULL)
 	{
 		data = data_start->next;
-		while (data->next && flag == OK)
+		while (data && flag == OK)
 		{
-			num1 = ft_atoi(data->num);
-			num2 = ft_atoi(data->next->num);
-			if (num1 > num2)
-				flag = KO;
+			data2 = data->next;
+			while (data2)
+			{
+				if (data->lnum > data2->lnum)
+					flag = KO;
+				data2 = data2->next;
+			}
 			data = data->next;
 		}
 	}

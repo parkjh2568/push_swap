@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 14:27:59 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:49:20 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void		check_start(t_data *a_start)
 	t_data	b_start;
 
 	ft_lstreset(&b_start);
-	flag = is_available(a_start);
+	flag = is_available(&a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);
 	print_data(a_start, &b_start);

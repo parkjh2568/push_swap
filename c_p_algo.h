@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 13:54:32 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:29:41 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct		s_data
 {
 	char			*num;
+	long			lnum;
 	struct s_data	*next;
 }					t_data;
 
@@ -31,7 +32,7 @@ void				ft_lstreset(t_data *data);
 void				ft_lstfree(t_data **lst);
 int					ft_lstlen(t_data *data);
 t_data				*ft_lstnew_chardata(char *data);
-int					is_available(t_data *a_start);
+int					is_available(t_data **a_start);
 void				ft_error(t_data *a_start, t_data *b_start);
 
 void				command_solo_s(t_data **data);
