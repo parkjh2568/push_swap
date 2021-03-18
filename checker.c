@@ -6,13 +6,13 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 18:33:15 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:30:31 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c_p_algo.h"
 
-void	test(t_data *a_start, t_data *b_start)
+void	print_data(t_data *a_start, t_data *b_start)
 {
 	t_data	*temp1;
 	t_data	*temp2;
@@ -49,243 +49,118 @@ void	test(t_data *a_start, t_data *b_start)
 	}
 }
 
-void	test1(t_data *a_start, t_data *b_start)
+int		detect_input_data2(char *input, t_data *a_start, t_data *b_start)
 {
-	command_solo_s(&a_start);
-	printf("sa\n");
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pa\n");
-	command_solo_p(&b_start, &a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pa\n");
-	command_solo_p(&b_start, &a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pa\n");
-	command_solo_p(&b_start, &a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	command_solo_s(&b_start);
-	printf("sb\n");
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	command_solo_s(&b_start);
-	printf("sb\n");
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pa\n");
-	command_solo_p(&b_start, &a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	command_solo_s(&b_start);
-	printf("sb\n");
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pa\n");
-	command_solo_p(&b_start, &a_start);
-	test(a_start, b_start);
-	printf("\n\n");
+	int		err_flag;
+
+	err_flag = 0;
+	if (input[1] == 'r')
+	{
+		if (input[2] == 'a')
+		{
+			command_solo_rr(&a_start);
+			printf("rra\n");
+		}
+		else if (input[2] == 'b')
+		{
+			command_solo_rr(&a_start);
+			printf("rrb\n");
+		}
+		else if (input[2] == 'r')
+		{
+			command_duo_rr(&a_start, &b_start);
+			printf("rrr\n");
+		}
+		else if (input[2] == '\0')
+		{
+			command_duo_r(&a_start, &b_start);
+			printf("rr\n");
+		}
+		else
+			err_flag = 1;
+	}
+	else
+	{
+		if (input[1] == 'a')
+		{
+			command_solo_r(&a_start);
+			printf("ra\n");
+		}
+		else if (input[1] == 'b')
+		{
+			command_solo_r(&b_start);
+			printf("rb\n");
+		}
+		else
+			err_flag = 1;
+	}
+	return (err_flag);
 }
 
-void	test2(t_data *a_start, t_data *b_start)
+int		detect_input_data1(char *input, t_data *a_start, t_data *b_start)
 {
-	printf("ra\n");
-	command_solo_r(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
+	int		err_flag;
 
-	printf("rb\n");
-	command_solo_r(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("ra\n");
-	command_solo_r(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("ra\n");
-	command_solo_r(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("rb\n");
-	command_solo_r(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("pa\n");
-	command_solo_p(&b_start, &a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("ra\n");
-	command_solo_r(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("rb\n");
-	command_solo_r(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-	printf("pb\n");
-	command_solo_p(&a_start, &b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-		printf("rb\n");
-	command_solo_r(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");printf("rb\n");
-	command_solo_r(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-}
-
-void	test3(t_data *a_start, t_data *b_start)
-{
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rra\n");
-	command_solo_rr(&a_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
-	printf("rrb\n");
-	command_solo_rr(&b_start);
-	test(a_start, b_start);
-	printf("\n\n");
-
-
+	err_flag = 0;
+	if (input[0] == 's')
+	{
+		if (input[1] == 'a')
+		{
+			command_solo_s(&a_start);
+			printf("sa\n");
+		}
+		else if (input[1] == 'b')
+		{
+			command_solo_s(&b_start);
+			printf("sb\n");
+		}
+		else if (input[1] == 's')
+		{
+			command_duo_s(&a_start, &b_start);
+			printf("ss\n");
+		}
+		else
+			err_flag = 1;
+	}
+	else if (input[0] == 'p')
+	{
+		if (input[1] == 'a')
+		{
+			command_solo_p(&b_start, &a_start);
+			printf("pa\n");
+		}
+		else if (input[1] == 'b')
+		{
+			command_solo_p(&q_start, &b_start);
+			printf("pb\n");
+		}
+		else
+			err_flag = 1;	
+	}
+	else if (input[0] == 'r')
+		err_flag = detect_input_data2(input, a_start, b_start);
+	else
+		err_flag = 1;
+	return (err_flag);
 }
 
 void	input_algo_command(t_data *a_start, t_data *b_start)
 {
-	test1(a_start, b_start);
-	test2(a_start, b_start);
-	test3(a_start, b_start);
-	ft_lstfree(&a_start);
-	ft_lstfree(&b_start);
+	char	*input;
+	int		gnl_flag;
+	int		detect_flag;
+
+	gnl_flag = 10;
+	detect_flag = 0;
+	while(gnl_flag > 0 && detect_flag == 0)
+	{
+		gnl_flag = get_next_line(&input);
+		if (gnl_flag >= 0)
+			detect_flag = detect_input_data(input, a_start, b_start);
+		free(input);
+	}
+	if (detect_flag != 0)
+		ft_error(a_start, b_start);
 }
 
 void	check_start(t_data *a_start)
