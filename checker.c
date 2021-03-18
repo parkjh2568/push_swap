@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 12:11:15 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 14:02:42 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void		input_algo_command(t_data *a_start, t_data *b_start)
 	while (gnl_flag > 0 && detect_flag == OK)
 	{
 		gnl_flag = get_next_line(&input);
-		if (gnl_flag >= 0)
+		if (gnl_flag >= 0 && input[0] != '\0')
 			detect_flag = detect_input_data1(input, a_start, b_start);
 		free(input);
 		print_data(a_start, b_start);
@@ -87,6 +87,7 @@ void		input_algo_command(t_data *a_start, t_data *b_start)
 	}
 	if (detect_flag != OK)
 		ft_error(a_start, b_start);
+	result_of_checker(&a_start, &b_start);
 }
 
 void		check_start(t_data *a_start)

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 12:08:45 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 13:54:32 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void				command_duo_r(t_data **data1, t_data **data2);
 void				command_duo_rr(t_data **data1, t_data **data2);
 
 void				print_data(t_data *a_start, t_data *b_start);
+int					is_sorted(t_data *data_start);
+void				result_of_checker(t_data **a_start, t_data **b_start);
 #endif
