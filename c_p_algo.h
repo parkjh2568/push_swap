@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 11:31:56 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 12:08:45 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include "./libft/libft.h"
 
 # define BUFFER_SIZE 1
+# define OK 0
+# define KO 1
 
 typedef struct		s_data
 {
@@ -39,4 +41,6 @@ void				command_solo_rr(t_data **data);
 void				command_duo_s(t_data **data1, t_data **data2);
 void				command_duo_r(t_data **data1, t_data **data2);
 void				command_duo_rr(t_data **data1, t_data **data2);
+
+void				print_data(t_data *a_start, t_data *b_start);
 #endif

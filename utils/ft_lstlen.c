@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 17:10:05 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 17:12:12 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 12:00:43 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		ft_lstlen(t_data *data)
 
 	temp = data->next;
 	if (!temp)
-		return(0);
+		return (0);
 	i = 1;
-	while(temp->next)
+	while (temp->next)
 	{
 		i++;
 		temp = temp->next;

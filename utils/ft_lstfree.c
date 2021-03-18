@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:28:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 16:53:08 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 12:01:10 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	ft_lstfree(t_data **lst)
 	clear = (*lst);
 	if (!clear)
 	{
-		while(clear)
+		while (clear)
 		{
 			ot = clear;
 			clear = clear->next;
 			free(ot->num);
 			free(ot);
 		}
-	clear = NULL;
+		clear = NULL;
 	}
 }

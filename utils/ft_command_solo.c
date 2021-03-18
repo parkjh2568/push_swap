@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 17:06:32 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 18:28:21 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 12:02:31 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	command_solo_p(t_data **data1, t_data **data2)
 			(*data1)->next = (*data1)->next->next;
 		else
 			(*data1)->next = NULL;
-
 		if (temp2)
 		{
 			(*data2)->next = temp1;
@@ -66,7 +65,7 @@ void	command_solo_r(t_data **data)
 		temp1 = (*data)->next;
 		(*data)->next = (*data)->next->next;
 		temp2 = (*data)->next;
-		while(temp2->next)
+		while (temp2->next)
 			temp2 = temp2->next;
 		temp2->next = temp1;
 		temp1->next = NULL;
@@ -83,7 +82,7 @@ void	command_solo_rr(t_data **data)
 	if (len > 1)
 	{
 		temp1 = (*data)->next;
-		while(temp1->next->next)
+		while (temp1->next->next)
 			temp1 = temp1->next;
 		temp2 = temp1->next;
 		temp1->next = NULL;
