@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 11:30:31 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:35:52 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,40 +57,22 @@ int		detect_input_data2(char *input, t_data *a_start, t_data *b_start)
 	if (input[1] == 'r')
 	{
 		if (input[2] == 'a')
-		{
 			command_solo_rr(&a_start);
-			printf("rra\n");
-		}
 		else if (input[2] == 'b')
-		{
 			command_solo_rr(&a_start);
-			printf("rrb\n");
-		}
 		else if (input[2] == 'r')
-		{
 			command_duo_rr(&a_start, &b_start);
-			printf("rrr\n");
-		}
 		else if (input[2] == '\0')
-		{
 			command_duo_r(&a_start, &b_start);
-			printf("rr\n");
-		}
 		else
 			err_flag = 1;
 	}
 	else
 	{
 		if (input[1] == 'a')
-		{
 			command_solo_r(&a_start);
-			printf("ra\n");
-		}
 		else if (input[1] == 'b')
-		{
 			command_solo_r(&b_start);
-			printf("rb\n");
-		}
 		else
 			err_flag = 1;
 	}
@@ -105,35 +87,20 @@ int		detect_input_data1(char *input, t_data *a_start, t_data *b_start)
 	if (input[0] == 's')
 	{
 		if (input[1] == 'a')
-		{
 			command_solo_s(&a_start);
-			printf("sa\n");
-		}
 		else if (input[1] == 'b')
-		{
 			command_solo_s(&b_start);
-			printf("sb\n");
-		}
 		else if (input[1] == 's')
-		{
 			command_duo_s(&a_start, &b_start);
-			printf("ss\n");
-		}
 		else
 			err_flag = 1;
 	}
 	else if (input[0] == 'p')
 	{
 		if (input[1] == 'a')
-		{
 			command_solo_p(&b_start, &a_start);
-			printf("pa\n");
-		}
 		else if (input[1] == 'b')
-		{
-			command_solo_p(&q_start, &b_start);
-			printf("pb\n");
-		}
+			command_solo_p(&a_start, &b_start);
 		else
 			err_flag = 1;	
 	}
@@ -156,8 +123,10 @@ void	input_algo_command(t_data *a_start, t_data *b_start)
 	{
 		gnl_flag = get_next_line(&input);
 		if (gnl_flag >= 0)
-			detect_flag = detect_input_data(input, a_start, b_start);
+			detect_flag = detect_input_data1(input, a_start, b_start);
 		free(input);
+		print_data(a_start, b_start);
+		printf("\n\n");
 	}
 	if (detect_flag != 0)
 		ft_error(a_start, b_start);
@@ -172,7 +141,7 @@ void	check_start(t_data *a_start)
 	flag = is_available(a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);
-	test(a_start, &b_start);
+	print_data(a_start, &b_start);
 	printf("\n");
 	input_algo_command(a_start, &b_start);
 }

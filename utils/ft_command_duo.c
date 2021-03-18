@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 17:06:32 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 10:18:49 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:33:04 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	command_duo_r(t_data **data1, t_data **data2)
 void	command_duo_rr(t_data **data1, t_data **data2)
 {
 	command_solo_rr(data1);
-	command_dolo_rr(data2);
+	command_solo_rr(data2);
 }

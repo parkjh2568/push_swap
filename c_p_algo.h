@@ -6,13 +6,15 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 10:25:30 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:31:56 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef C_P_ALGO_H
 # define C_P_ALGO_H
 # include "./libft/libft.h"
+
+# define BUFFER_SIZE 1
 
 typedef struct		s_data
 {
