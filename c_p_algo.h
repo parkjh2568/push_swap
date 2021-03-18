@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/17 18:28:44 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/18 10:25:30 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ typedef struct		s_data
 	struct s_data	*next;
 }					t_data;
 
+char				*gnl_strjoin(char *s1, char *s2);
+int					get_next_line(char **line);
+
 void				ft_lstreset(t_data *data);
 void				ft_lstfree(t_data **lst);
 int					ft_lstlen(t_data *data);
@@ -31,4 +34,7 @@ void				command_solo_s(t_data **data);
 void				command_solo_p(t_data **data1, t_data **data2);
 void				command_solo_r(t_data **data);
 void				command_solo_rr(t_data **data);
+void				command_duo_s(t_data **data1, t_data **data2);
+void				command_duo_r(t_data **data1, t_data **data2);
+void				command_duo_rr(t_data **data1, t_data **data2);
 #endif
