@@ -6,7 +6,7 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/18 13:54:54 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/18 14:52:09 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ U_SRCS	=	./gnl/get_next_line.c ./gnl/get_next_line_utils.c \
 			./utils/print_data.c ./utils/is_sorted.c \
 
 
-C_SRCS	=	checker.c ./c_srcs/result_of_checker.c
+C_SRCS	=	checker.c ./srcs_c/result_of_checker.c
 
 P_SRCS	=
 
