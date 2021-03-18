@@ -6,7 +6,7 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/18 14:52:09 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/18 16:42:15 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ U_SRCS	=	./gnl/get_next_line.c ./gnl/get_next_line_utils.c \
 
 C_SRCS	=	checker.c ./srcs_c/result_of_checker.c
 
-P_SRCS	=
+P_SRCS	=	push_swap.c ./srcs_p/ft_find_big_small.c \
+
 
 
 U_OBJS	=	${U_SRCS:.c=.o}
@@ -46,7 +47,7 @@ DILIBFT	=	./libft
 LIBFT	=	./libft/libft.a
 
 
-all:		${MKLIBFT} ${U_NAME} ${C_NAME} #${P_NAME}
+all:		${MKLIBFT} ${U_NAME} ${P_NAME} #${C_NAME}
 
 
 .c.o:
