@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:19:45 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 17:14:30 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:20:30 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		sorting_start(t_data *a_start, t_data *b_start)
 	ft_lstfree(&a_start);
 	ft_lstfree(&b_start);
 	free(origin_data);
+//	while(1){};
 }
 
 void		push_swap_start(t_data *a_start)
@@ -38,7 +39,6 @@ void		push_swap_start(t_data *a_start)
 
 	ft_lstreset(&b_start);
 	is_can_split(&a_start);
-	ft_lstfree(&a_start);
 	flag = is_available(&a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);

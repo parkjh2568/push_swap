@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:53:37 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 17:20:17 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 18:33:39 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ void		is_can_split(t_data **a_start)
 			sep = 1;
 		if ((temp->num[i] < '0' || temp->num[i] > '9') && temp->num[i] != ' ')
 		{
-			flag = KO;
-			break;
+			if (temp->num[i] != '-')
+			{
+				flag = KO;
+				break;
+			}
 		}
 		i++;
 	}

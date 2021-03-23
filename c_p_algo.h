@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 16:55:08 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 19:10:05 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ typedef struct		s_sort
 	long			mid;
 }					t_sort;
 
+typedef struct		s_cnt
+{
+	long			max;
+	long			remain;
+}					t_cnt;
+
 char				*gnl_strjoin(char *s1, char *s2);
 int					get_next_line(char **line);
 
@@ -58,7 +64,7 @@ void				is_can_split(t_data **a_start);
 
 t_sort				*ft_find_big_small(t_data *a_start, int cnt);
 void				ft_half_of_sort(t_data **a_start, t_data **b_start,
-					t_sort *s_base);
+					t_sort *s_base, t_cnt *d_cnt);
 void				ft_full_of_sort(t_data **a_start, t_data **b_start,
 					t_sort *s_base);
 void				ft_sort_process(t_data **a_start, t_data **b_start,
