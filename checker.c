@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 15:49:20 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:26:36 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ void		input_algo_command(t_data *a_start, t_data *b_start)
 		else
 			gnl_flag = 0;
 		free(input);
-		print_data(a_start, b_start);
-		printf("\n\n");
 	}
 	if (detect_flag != OK)
 		ft_error(a_start, b_start);
@@ -101,11 +99,14 @@ void		check_start(t_data *a_start)
 	t_data	b_start;
 
 	ft_lstreset(&b_start);
+	is_can_split(&a_start);
 	flag = is_available(&a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);
+
+	printf("befor\n");
 	print_data(a_start, &b_start);
-	printf("\n");
+
 	input_algo_command(a_start, &b_start);
 }
 

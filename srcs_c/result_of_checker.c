@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 12:13:41 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 16:13:44 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:26:50 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void		result_of_checker(t_data **a_start, t_data **b_start)
 {
 	int		flag;
 
+	printf("\nafter\n");
+	print_data(*a_start, *b_start);
 	if ((*b_start)->next == NULL)
 	{
 		flag = is_sorted(*a_start);

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 16:43:48 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:55:08 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_sort
 	long			cnt;
 	long			small;
 	long			big;
+	long			mid;
 }					t_sort;
 
 char				*gnl_strjoin(char *s1, char *s2);
@@ -53,6 +54,15 @@ void				command_duo_rr(t_data **data1, t_data **data2);
 void				print_data(t_data *a_start, t_data *b_start);
 int					is_sorted(t_data *data_start);
 void				result_of_checker(t_data **a_start, t_data **b_start);
+void				is_can_split(t_data **a_start);
 
-t_sort				*ft_find_big_small(t_data *a_start);
+t_sort				*ft_find_big_small(t_data *a_start, int cnt);
+void				ft_half_of_sort(t_data **a_start, t_data **b_start,
+					t_sort *s_base);
+void				ft_full_of_sort(t_data **a_start, t_data **b_start,
+					t_sort *s_base);
+void				ft_sort_process(t_data **a_start, t_data **b_start,
+					t_sort *s_base);
+void				ft_sort_b(t_data **a_start, t_data **b_start,
+					t_sort *b_data);
 #endif

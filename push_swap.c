@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:19:45 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/18 16:46:53 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:14:30 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 void		sorting_start(t_data *a_start, t_data *b_start)
 {
 	t_sort	*origin_data;
+	int		flag;
 
 	(void)b_start;
-	origin_data = ft_find_big_small(a_start);
-	printf("big = %ld, small = %ld\n",origin_data->big,origin_data->small);
+	origin_data = ft_find_big_small(a_start, ft_lstlen(a_start));
+	flag = is_sorted(a_start);
+	if (flag == OK)
+		printf("is sorted\n");
+	else
+		ft_sort_process(&a_start, &b_start, origin_data);
+
+//	print_data(a_start, b_start);
 	ft_lstfree(&a_start);
+	ft_lstfree(&b_start);
 	free(origin_data);
 }
 
@@ -29,11 +37,12 @@ void		push_swap_start(t_data *a_start)
 	t_data	b_start;
 
 	ft_lstreset(&b_start);
+	is_can_split(&a_start);
+	ft_lstfree(&a_start);
 	flag = is_available(&a_start);
 	if (flag < 0)
 		ft_error(a_start, NULL);
-	print_data(a_start, &b_start);
-	printf("\n");
+//	print_data(a_start, &b_start);
 	sorting_start(a_start, &b_start);
 }
 
