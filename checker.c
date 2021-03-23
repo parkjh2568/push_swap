@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 17:26:36 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 22:05:05 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ void		check_start(t_data *a_start)
 	if (flag < 0)
 		ft_error(a_start, NULL);
 
-	printf("befor\n");
-	print_data(a_start, &b_start);
+//	printf("befor\n");
+//	print_data(a_start, &b_start);
 
 	input_algo_command(a_start, &b_start);
 }

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:53:37 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 18:33:39 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/23 20:47:13 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,5 @@ void		is_can_split(t_data **a_start)
 		i++;
 	}
 	if (flag == OK && sep == 1)
-	{
 		divide_a_start(a_start);
-	}
 }

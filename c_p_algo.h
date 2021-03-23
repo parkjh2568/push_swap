@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 19:10:05 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 00:41:14 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,20 @@ typedef struct		s_data
 {
 	char			*num;
 	long			lnum;
+	long			index;
 	struct s_data	*next;
 }					t_data;
 
 typedef struct		s_sort
 {
 	long			cnt;
+	long			mid_cnt;
 	long			small;
+	long			s_cnt;
 	long			big;
+	long			b_cnt;
 	long			mid;
+	long			r_flag;
 }					t_sort;
 
 typedef struct		s_cnt
@@ -59,9 +64,13 @@ void				command_duo_rr(t_data **data1, t_data **data2);
 
 void				print_data(t_data *a_start, t_data *b_start);
 int					is_sorted(t_data *data_start);
+int					is_rsorted(t_data *data_start);
 void				result_of_checker(t_data **a_start, t_data **b_start);
 void				is_can_split(t_data **a_start);
 
+void				ft_full_sm_sort(t_data **a_start, t_data **b_start,
+					t_sort *s_base);
+void				ft_input_index(t_data **a_start, int cnt);
 t_sort				*ft_find_big_small(t_data *a_start, int cnt);
 void				ft_half_of_sort(t_data **a_start, t_data **b_start,
 					t_sort *s_base, t_cnt *d_cnt);

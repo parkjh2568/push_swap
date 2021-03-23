@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:35:57 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 19:18:41 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 01:32:56 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,61 +43,48 @@ void		half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
 	b_data = ft_find_big_small(*b, ft_lstlen(*b));
 	d_cnt->remain = d_cnt->remain - b_data->cnt;
 	ft_sort_b(a, b, b_data);
-	free(b_data);
 }
 
-void		doing_half_sort(t_data **a_start, t_data **b_start,
-		t_sort *b_data, t_cnt *d_cnt)
+void		doing_half_sort(t_data **a_start, t_data **b_start, t_cnt *d_cnt)
 {
+	t_sort	*base;
+
+	base = ft_find_big_small(*a_start, d_cnt->remain);
 	while(d_cnt->remain > 5)
 	{
-		half_of_sort(a_start, b_start, b_data, d_cnt);
-		free(b_data);
-		b_data = ft_find_big_small(*a_start, d_cnt->remain);
-/*
-		printf("\n fucking\n");
-		printf("b_data big = %ld, b_data small = %ld, b_data cnt = %ld\n",
-				b_data->big, b_data->small, b_data->cnt);
-		printf("max = %ld, remain = %ld\n",d_cnt->max,d_cnt->remain);
-		print_data(*a_start, *b_start);
-*/
+		half_of_sort(a_start, b_start,base, d_cnt);
+		free(base);
+		base = ft_find_big_small(*a_start, d_cnt->remain);
 	}
-	ft_full_of_sort(a_start, b_start, b_data);
+	ft_full_of_sort(a_start, b_start, base);
+	free(base);
 }
 
 void		many_sort_start(t_data **a_start, t_data **b_start, t_sort *b_data)
 {
 	t_cnt	d_cnt;
+	t_sort	*base;
 
 	d_cnt.max = b_data->cnt;
 	d_cnt.remain = b_data->cnt;
 	ft_half_of_sort(a_start, b_start, b_data, &d_cnt);
-	free(b_data);
-	b_data = ft_find_big_small(*a_start, d_cnt.remain);
-/*
-	printf("\n fucking\n");
-	printf("b_data big = %ld, b_data small = %ld, b_data cnt = %ld\n",
-	b_data->big, b_data->small, b_data->cnt);
-	printf("max = %ld, remain = %ld\n",d_cnt.max,d_cnt.remain);
-	print_data(*a_start, *b_start);
-*/	
-	if (d_cnt.remain > 5)
-		doing_half_sort(a_start, b_start, b_data, &d_cnt);
+	base = ft_find_big_small(*a_start, d_cnt.remain);
+	if (d_cnt.remain > 10)
+		doing_half_sort(a_start, b_start, &d_cnt);
 	else
-		ft_full_of_sort(a_start, b_start, b_data);
+		ft_full_of_sort(a_start, b_start, base);
+	free(base);
 }
-
 
 void		ft_sort_process(t_data **a_start, t_data **b_start, t_sort *b_data)
 {
 	if (b_data->cnt > 5)
-	{
-		printf("half\n");
 		many_sort_start(a_start, b_start, b_data);
-	}
+	else if (b_data->cnt > 2)
+		ft_full_sm_sort(a_start, b_start, b_data);
 	else
 	{
-		printf("full\n");
-		ft_full_of_sort(a_start, b_start, b_data);
+		command_solo_s(a_start);
+		write(1, "sa\n", 3);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:56:17 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 18:17:41 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 00:02:07 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_sort		*small_flag(t_data **a_start, t_data **b_start)
 	write(1, "pa\n", 3);
 	if ((*b_start)->next != NULL)
 	{
-		if (out->small == (*b_start)->next->lnum)
+		if (out->small == (*b_start)->next->index)
 		{
 			command_solo_r(a_start);
 			write(1, "ra\n", 3);
@@ -50,20 +50,29 @@ t_sort		*small_flag(t_data **a_start, t_data **b_start)
 	return (out);
 }
 
+void		reverse_a(t_data **a_start, int cnt)
+{
+	while (cnt-- > 0)
+	{
+		command_solo_r(a_start);
+		write(1, "ra\n", 3);
+	}
+}
+
 void		ft_sort_b(t_data **a_start, t_data **b_start, t_sort *b_data)
 {
 	int		big_cnt;
 
 	big_cnt = 0;
-	while((*b_start)->next != NULL)
+	while ((*b_start)->next != NULL)
 	{
-		if ((*b_start)->next->lnum == b_data->big)
+		if ((*b_start)->next->index == b_data->big)
 		{
 			free(b_data);
 			b_data = big_flag(a_start, b_start);
 			big_cnt++;
 		}
-		else if ((*b_start)->next->lnum == b_data->small)
+		else if ((*b_start)->next->index == b_data->small)
 		{
 			free(b_data);
 			b_data = small_flag(a_start, b_start);
@@ -74,9 +83,6 @@ void		ft_sort_b(t_data **a_start, t_data **b_start, t_sort *b_data)
 			write(1, "rb\n", 3);
 		}
 	}
-	while(big_cnt-- > 0)
-	{
-		command_solo_r(a_start);
-		write(1, "ra\n", 3);
-	}
+	reverse_a(a_start, big_cnt);
+	free(b_data);
 }
