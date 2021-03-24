@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:15:28 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 14:37:16 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:35:27 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	r_supporter(t_data **a, t_data **b, int flag)
 		command_duo_r(a, b);
 		write(1, "rr\n", 3);
 	}
-	else if(flag == 2)
+	else if (flag == 2)
 	{
 		command_solo_r(a);
 		write(1, "ra\n", 3);

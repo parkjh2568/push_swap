@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:35:57 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 14:55:29 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:35:41 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void		doing_half_sort(t_data **a_start, t_data **b_start, t_cnt *d_cnt)
 	ft_thir_sort(a_start, b_start, base, &d_cnt);
 	free(base);
 	base = ft_find_big_small(*a_start, d_cnt->remain);
-	while(d_cnt->remain > 50)
+	while (d_cnt->remain > 50)
 	{
-		half_of_sort(a_start, b_start,base, d_cnt);
+		half_of_sort(a_start, b_start, base, d_cnt);
 		free(base);
 		base = ft_find_big_small(*a_start, d_cnt->remain);
 	}
