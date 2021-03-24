@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:41:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 15:31:35 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 19:58:03 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int			detect_input_data2(char *input, t_data *a_start, t_data *b_start)
 {
 	if (input[1] == 'r')
 	{
-		if (input[2] == 'a')
+		if (input[2] == 'a' && input[3] == '\0')
 			command_solo_rr(&a_start);
-		else if (input[2] == 'b')
+		else if (input[2] == 'b' && input[3] == '\0')
 			command_solo_rr(&b_start);
-		else if (input[2] == 'r')
+		else if (input[2] == 'r' && input[3] == '\0')
 			command_duo_rr(&a_start, &b_start);
 		else if (input[2] == '\0')
 			command_duo_r(&a_start, &b_start);
@@ -29,9 +29,9 @@ int			detect_input_data2(char *input, t_data *a_start, t_data *b_start)
 	}
 	else
 	{
-		if (input[1] == 'a')
+		if (input[1] == 'a' && input[2] == '\0')
 			command_solo_r(&a_start);
-		else if (input[1] == 'b')
+		else if (input[1] == 'b' && input[2] == '\0')
 			command_solo_r(&b_start);
 		else
 			return (KO);
@@ -43,20 +43,20 @@ int			detect_input_data1(char *input, t_data *a_start, t_data *b_start)
 {
 	if (input[0] == 's')
 	{
-		if (input[1] == 'a')
+		if (input[1] == 'a' && input[2] == '\0')
 			command_solo_s(&a_start);
-		else if (input[1] == 'b')
+		else if (input[1] == 'b' && input[2] == '\0')
 			command_solo_s(&b_start);
-		else if (input[1] == 's')
+		else if (input[1] == 's' && input[2] == '\0')
 			command_duo_s(&a_start, &b_start);
 		else
 			return (KO);
 	}
 	else if (input[0] == 'p')
 	{
-		if (input[1] == 'a')
+		if (input[1] == 'a' && input[2] == '\0')
 			command_solo_p(&b_start, &a_start);
-		else if (input[1] == 'b')
+		else if (input[1] == 'b' && input[2] == '\0')
 			command_solo_p(&a_start, &b_start);
 		else
 			return (KO);
@@ -112,13 +112,16 @@ int			main(int count, char *data[])
 	t_data	*temp;
 	int		i;
 
-	i = 0;
-	ft_lstreset(&a_start);
-	temp = &a_start;
-	while (++i < count)
+	if (count > 1)
 	{
-		temp->next = ft_lstnew_chardata(ft_strdup(data[i]));
-		temp = temp->next;
+		i = 0;
+		ft_lstreset(&a_start);
+		temp = &a_start;
+		while (++i < count)
+		{
+			temp->next = ft_lstnew_chardata(ft_strdup(data[i]));
+			temp = temp->next;
+		}
+		check_start(&a_start);
 	}
-	check_start(&a_start);
 }
