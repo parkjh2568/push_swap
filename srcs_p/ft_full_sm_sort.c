@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_full_sm_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhypar <junhypar@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 00:12:03 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 01:59:51 by junhypar         ###   ########.fr       */
+/*   Created: 2021/03/24 16:00:09 by junhypar          #+#    #+#             */
+/*   Updated: 2021/03/24 16:00:54 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		command_support(t_data **a_start, int flag)
 	}
 }
 
-void		command_support_p(t_data **a_start, t_data **b_start,  int flag)
+void		command_support_p(t_data **a_start, t_data **b_start, int flag)
 {
 	if (flag == 1)
 	{
@@ -48,7 +48,6 @@ void		command_support_p(t_data **a_start, t_data **b_start,  int flag)
 void		ssm_sorting(t_data **a_start, t_data **b_start)
 {
 	t_sort	*s_base;
-
 
 	s_base = ft_find_big_small(*a_start, ft_lstlen(*a_start));
 	while ((*a_start)->next->index != s_base->small)
