@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 14:07:30 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 15:38:48 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:40:11 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void		half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
 		else
 			ft_support_half_r(a, b, &min_cnt);
 		if (pb_cnt == base->mid_cnt)
-			break;
+			break ;
 		i++;
 	}
-	while(min_cnt--)
-			supot_h(a, b, 0, 2);
+	while (min_cnt--)
+		supot_h(a, b, 0, 2);
 	b_data = ft_find_big_small(*b, ft_lstlen(*b));
 	d_cnt->remain = d_cnt->remain - b_data->cnt;
 	ft_sort_b(a, b, b_data);
