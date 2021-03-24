@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:56:17 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 10:33:53 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:48:53 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		find_r_flag(t_sort **base)
 	long	s_m;
 	long	b_m;
 
-	s_m = (*base)->s_cnt - (*base)->mid_cnt;	
+	s_m = (*base)->s_cnt - (*base)->mid_cnt;
 	b_m = (*base)->b_cnt - (*base)->mid_cnt;
 	if (s_m < 0)
 		s_m *= (-1);
@@ -98,15 +98,9 @@ void		ft_sort_b(t_data **a_start, t_data **b_start, t_sort *b_data)
 			b_data = small_flag(a_start, b_start);
 		}
 		else if (b_data->r_flag < b_data->mid_cnt)
-		{
-			command_solo_r(b_start);
-			write(1, "rb\n", 3);
-		}
+			support_b_sort(b_start, 1);
 		else
-		{
-			command_solo_rr(b_start);
-			write(1, "rrb\n", 4);
-		}
+			support_b_sort(b_start, 2);
 	}
 	reverse_a(a_start, big_cnt);
 	free(b_data);

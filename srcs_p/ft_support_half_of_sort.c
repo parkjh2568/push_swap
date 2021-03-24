@@ -6,11 +6,25 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:15:28 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 15:35:27 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:48:02 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../c_p_algo.h"
+
+void		support_b_sort(t_data **b, int flag)
+{
+	if (flag == 1)
+	{
+		command_solo_r(b);
+		write(1, "rb\n", 3);
+	}
+	else if (flag == 2)
+	{
+		command_solo_rr(b);
+		write(1, "rrb\n", 4);
+	}
+}
 
 static void	r_supporter(t_data **a, t_data **b, int flag)
 {
