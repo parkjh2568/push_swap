@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:35:57 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 01:32:56 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 12:41:58 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,23 @@ void		half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
 	t_sort	*b_data;
 	int		i;
 	int		min_cnt;
+	int		pb_cnt;
 
+	pb_cnt = 0;
 	min_cnt = 0;
 	i = 0;
 	while(i < base->cnt)
 	{
-		if ((*a)->next->lnum < base->mid)
+		if ((*a)->next->index < base->mid)
 		{
 			command_solo_p(a, b);
 			write(1, "pb\n", 3);
+			pb_cnt++;
 		}
 		else
-		{
-			command_solo_r(a);
-			write(1, "ra\n", 4);
-			min_cnt++;
-		}
+			ft_support_half_r(a, b, &min_cnt);
+		if (pb_cnt == base->mid_cnt)
+			break;
 		i++;
 	}
 	while(min_cnt--)
@@ -50,7 +51,7 @@ void		doing_half_sort(t_data **a_start, t_data **b_start, t_cnt *d_cnt)
 	t_sort	*base;
 
 	base = ft_find_big_small(*a_start, d_cnt->remain);
-	while(d_cnt->remain > 5)
+	while(d_cnt->remain > 3)
 	{
 		half_of_sort(a_start, b_start,base, d_cnt);
 		free(base);
@@ -69,7 +70,7 @@ void		many_sort_start(t_data **a_start, t_data **b_start, t_sort *b_data)
 	d_cnt.remain = b_data->cnt;
 	ft_half_of_sort(a_start, b_start, b_data, &d_cnt);
 	base = ft_find_big_small(*a_start, d_cnt.remain);
-	if (d_cnt.remain > 10)
+	if (d_cnt.remain > 5)
 		doing_half_sort(a_start, b_start, &d_cnt);
 	else
 		ft_full_of_sort(a_start, b_start, base);

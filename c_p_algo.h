@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 00:41:14 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 12:21:40 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ void				ft_sort_process(t_data **a_start, t_data **b_start,
 					t_sort *s_base);
 void				ft_sort_b(t_data **a_start, t_data **b_start,
 					t_sort *b_data);
+void				ft_support_half_r(t_data **a, t_data **b, int *cnt);
 #endif
