@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:29:43 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 01:28:03 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 14:51:28 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static void		find_mid(t_sort **out, t_data *a_start)
 	cnt = (int)(*out)->cnt;
 	sort_data(&data, cnt);
 	(*out)->mid = data[cnt / 2];
+	(*out)->thir1 = data[cnt / 3];
+	(*out)->thir2 = data[(cnt / 3) * 2];
 	(*out)->mid_cnt = cnt / 2;
 	free(data);
 }

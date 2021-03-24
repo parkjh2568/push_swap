@@ -6,7 +6,7 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 07:31:46 by junhypar          #+#    #+#              #
-#    Updated: 2021/03/24 12:17:50 by junhypar         ###   ########.fr        #
+#    Updated: 2021/03/24 15:07:56 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ P_SRCS	=	push_swap.c ./srcs_p/ft_find_big_small.c \
 			./srcs_p/ft_input_index.c \
 			./srcs_p/ft_full_sm_sort.c \
 			./srcs_p/ft_support_half_of_sort.c \
+			./srcs_p/ft_rsort_long.c \
+			./srcs_p/ft_thir_sort.c \
 
 
 U_OBJS	=	${U_SRCS:.c=.o}

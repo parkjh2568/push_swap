@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:53:37 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 20:47:13 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:34:07 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,32 @@ void		divide_a_start(t_data **a_start)
 {
 	char	**out;
 	t_data	*temp;
+	int		i;
 
 	out = ft_split((*a_start)->next->num, ' ');
 	ft_lstfree(a_start);
 	(*a_start)->next = NULL;
-	
 	temp = *a_start;
-	int i;
 	i = 0;
-	while(out[i])
+	while (out[i])
 	{
 		temp->next = ft_lstnew_chardata(ft_strdup(out[i]));
 		temp = temp->next;
 		i++;
 	}
 	i = 0;
-	while(out[i])
+	while (out[i])
 	{
 		free(out[i]);
 		i++;
 	}
 	free(out[i]);
 	free(out);
-
 }
 
 void		is_can_split(t_data **a_start)
 {
-	t_data *temp;
+	t_data	*temp;
 	int		sep;
 	int		flag;
 	int		i;
@@ -52,7 +50,7 @@ void		is_can_split(t_data **a_start)
 	sep = 0;
 	flag = OK;
 	temp = (*a_start)->next;
-	while(temp->num[i])
+	while (temp->num[i])
 	{
 		if (temp->num[i] == ' ')
 			sep = 1;
@@ -61,7 +59,7 @@ void		is_can_split(t_data **a_start)
 			if (temp->num[i] != '-')
 			{
 				flag = KO;
-				break;
+				break ;
 			}
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:19:45 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 11:40:23 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:30:25 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void		sorting_start(t_data *a_start, t_data *b_start)
 	flag = is_sorted(a_start);
 	if (flag != OK)
 		ft_sort_process(&a_start, &b_start, origin_data);
-
 	ft_lstfree(&a_start);
 	ft_lstfree(&b_start);
 	free(origin_data);

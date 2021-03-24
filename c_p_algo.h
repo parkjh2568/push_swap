@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 12:21:40 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 14:54:06 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct		s_sort
 {
 	long			cnt;
 	long			mid_cnt;
+	long			thir1;
+	long			thir2;
 	long			small;
 	long			s_cnt;
 	long			big;
@@ -81,4 +83,14 @@ void				ft_sort_process(t_data **a_start, t_data **b_start,
 void				ft_sort_b(t_data **a_start, t_data **b_start,
 					t_sort *b_data);
 void				ft_support_half_r(t_data **a, t_data **b, int *cnt);
+
+void				half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt);
+
+void				setting_big_small(t_data **a_start, int flag);
+
+void				full_sort_support(t_data **a_start, int *flag, int big_small);
+void				ft_full_of_rsort(t_data **a_start, t_data **b_start, 
+					t_sort *s_base);
+
+void				ft_thir_sort(t_data **a_start, t_data **b_start, t_sort *base, t_cnt **d_cnt);
 #endif

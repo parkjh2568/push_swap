@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:15:28 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 12:37:27 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 14:37:16 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ void		ft_support_half_r(t_data **a, t_data **b, int *cnt)
 	{
 		base = ft_find_big_small(*b, ft_lstlen(*b));
 		if ((*b)->next->index == base->small)
-			r_supporter(a, b, 1);
-		else if ((*b)->next->index == base->big)
-			r_supporter(a, b, 1);
-		else
 			r_supporter(a, b, 2);
+		else if ((*b)->next->index == base->big)
+			r_supporter(a, b, 2);
+		else
+			r_supporter(a, b, 1);
 		free(base);
 	}
 	else
 		r_supporter(a, b, 2);
-	*cnt += 1;
+	if (cnt > 0)
+		*cnt += 1;
 }

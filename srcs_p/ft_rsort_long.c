@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_long_of_sort.c                                  :+:      :+:    :+:   */
+/*   ft_rsort_long.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 13:19:56 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 14:44:15 by junhypar         ###   ########.fr       */
+/*   Created: 2021/03/24 14:07:30 by junhypar          #+#    #+#             */
+/*   Updated: 2021/03/24 14:14:20 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../c_p_algo.h"
 
-void		ft_half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
+void		half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
 {
 	t_sort	*b_data;
 	int		i;
-	long	pb_cnt;
+	int		min_cnt;
+	int		pb_cnt;
 
 	pb_cnt = 0;
+	min_cnt = 0;
 	i = 0;
-	while (i < base->cnt)
+	while(i < base->cnt)
 	{
 		if ((*a)->next->index < base->mid)
 		{
@@ -29,53 +31,22 @@ void		ft_half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
 			pb_cnt++;
 		}
 		else
-			ft_support_half_r(a, b, 0);
+			ft_support_half_r(a, b, &min_cnt);
 		if (pb_cnt == base->mid_cnt)
 			break;
 		i++;
+	}
+	while(min_cnt--)
+	{
+		command_solo_rr(a);
+		write(1, "rra\n", 5);
 	}
 	b_data = ft_find_big_small(*b, ft_lstlen(*b));
 	d_cnt->remain = d_cnt->remain - b_data->cnt;
 	ft_sort_b(a, b, b_data);
 }
 
-void		full_sort_support(t_data **a_start, int *flag, int big_small)
-{
-	command_solo_r(a_start);
-	write(1, "ra\n", 3);
-	if (big_small == 1)
-	{
-		if (*flag == 0)
-			*flag = 1; //small 먼저
-	}
-	else
-	{
-		if (*flag == 0)
-			*flag = 2; //big먼저
-	}
-}
-
-void		setting_big_small(t_data **a_start, int flag)
-{
-	if (flag == 1)
-	{
-		command_solo_rr(a_start);
-		write(1, "rra\n", 4);
-	}
-	else
-	{
-		command_solo_rr(a_start);
-		write(1, "rra\n", 4);
-		command_solo_rr(a_start);
-		write(1, "rra\n", 4);
-		command_solo_s(a_start);
-		write(1, "sa\n", 3);
-		command_solo_r(a_start);
-		write(1, "ra\n", 3);
-	}
-}
-
-void		ft_full_of_sort(t_data **a_start, t_data **b_start, t_sort *s_base)
+void		ft_full_of_rsort(t_data **a_start, t_data **b_start, t_sort *s_base)
 {
 	t_sort	*b_data;
 	int		flag;
