@@ -6,38 +6,11 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:19:56 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 15:40:53 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 20:17:49 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../c_p_algo.h"
-
-void		ft_half_of_sort(t_data **a, t_data **b, t_sort *base, t_cnt *d_cnt)
-{
-	t_sort	*b_data;
-	int		i;
-	long	pb_cnt;
-
-	pb_cnt = 0;
-	i = 0;
-	while (i < base->cnt)
-	{
-		if ((*a)->next->index < base->mid)
-		{
-			command_solo_p(a, b);
-			write(1, "pb\n", 3);
-			pb_cnt++;
-		}
-		else
-			ft_support_half_r(a, b, 0);
-		if (pb_cnt == base->mid_cnt)
-			break ;
-		i++;
-	}
-	b_data = ft_find_big_small(*b, ft_lstlen(*b));
-	d_cnt->remain = d_cnt->remain - b_data->cnt;
-	ft_sort_b(a, b, b_data);
-}
 
 void		full_sort_support(t_data **a_start, int *flag, int big_small)
 {

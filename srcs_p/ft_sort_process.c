@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:35:57 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 15:59:06 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 20:24:41 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void		doing_half_sort(t_data **a_start, t_data **b_start, t_cnt *d_cnt)
 {
 	t_sort	*base;
 
-	base = ft_find_big_small(*a_start, d_cnt->remain);
-	ft_thir_sort(a_start, b_start, base, &d_cnt);
-	free(base);
 	base = ft_find_big_small(*a_start, d_cnt->remain);
 	while (d_cnt->remain > 50)
 	{
@@ -37,15 +34,13 @@ void		many_sort_start(t_data **a_start, t_data **b_start, t_sort *b_data)
 
 	d_cnt.max = b_data->cnt;
 	d_cnt.remain = b_data->cnt;
+	ft_thir_sort(a_start, b_start, b_data, &d_cnt);
+	base = ft_find_big_small(*a_start, d_cnt.remain);
 	if (d_cnt.remain > 100)
 		doing_half_sort(a_start, b_start, &d_cnt);
 	else
-	{
-		ft_half_of_sort(a_start, b_start, b_data, &d_cnt);
-		base = ft_find_big_small(*a_start, d_cnt.remain);
 		ft_full_of_sort(a_start, b_start, base);
-		free(base);
-	}
+	free(base);
 }
 
 void		ft_sort_process(t_data **a_start, t_data **b_start, t_sort *b_data)

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 14:52:09 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 16:06:32 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 20:16:19 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	set_zero(int *t1, int *t2, int *t3)
 }
 
 void		ft_thir_sort(t_data **a_start, t_data **b_start, t_sort *s_base,
-		t_cnt **d_cnt)
+		t_cnt *d_cnt)
 {
 	t_sort	*b_data;
 	int		t[3];
@@ -74,7 +74,7 @@ void		ft_thir_sort(t_data **a_start, t_data **b_start, t_sort *s_base,
 		else
 			support_thir(a_start, b_start, 3, 0);
 	}
-	(*d_cnt)->remain = (*d_cnt)->remain - t[1] - t[2];
+	d_cnt->remain = d_cnt->remain - t[1] - t[2];
 	t[1] = t[2];
 	while (t[1]--)
 		support_th_p(a_start, b_start, 1);

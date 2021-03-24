@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:10:55 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 16:08:21 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 20:18:01 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void				ft_full_sm_sort(t_data **a_start, t_data **b_start,
 					t_sort *s_base);
 void				ft_input_index(t_data **a_start, int cnt);
 t_sort				*ft_find_big_small(t_data *a_start, int cnt);
-void				ft_half_of_sort(t_data **a_start, t_data **b_start,
-					t_sort *s_base, t_cnt *d_cnt);
 void				ft_full_of_sort(t_data **a_start, t_data **b_start,
 					t_sort *s_base);
 void				ft_sort_process(t_data **a_start, t_data **b_start,
@@ -92,7 +90,7 @@ void				full_sort_support(t_data **a_start, int *flag,
 		int big_small);
 void				ft_full_of_rsort(t_data **a_start, t_data **b_start,
 		t_sort *s_base);
-void				ft_thir_sort(t_data **a_start, t_data **b_start,
-		t_sort *base, t_cnt **d_cnt);
 void				support_b_sort(t_data **b, int flag);
+void				ft_thir_sort(t_data **a_start, t_data **b_start,
+		t_sort *base, t_cnt *d_cnt);
 #endif
