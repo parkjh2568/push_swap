@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:56:17 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 15:48:53 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:49:58 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void		ft_sort_b(t_data **a_start, t_data **b_start, t_sort *b_data)
 	int		big_cnt;
 
 	big_cnt = 0;
-
 	while ((*b_start)->next != NULL)
 	{
 		if ((*b_start)->next->index == b_data->big)

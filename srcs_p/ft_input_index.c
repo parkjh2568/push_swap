@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:29:43 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/23 23:40:58 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:50:09 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void			put_index(t_data **a_start, long *data, int cnt)
 			if (temp->lnum == data[i])
 			{
 				temp->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}

@@ -6,7 +6,7 @@
 /*   By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:29:43 by junhypar          #+#    #+#             */
-/*   Updated: 2021/03/24 14:51:28 by junhypar         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:50:25 by junhypar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void		find_mid(t_sort **out, t_data *a_start)
 	free(data);
 }
 
-void		find_b_s(t_sort **out, long index, int i)
+void			find_b_s(t_sort **out, long index, int i)
 {
 	if (index > (*out)->big)
 	{
@@ -88,7 +88,7 @@ void		find_b_s(t_sort **out, long index, int i)
 	}
 }
 
-t_sort		*ft_find_big_small(t_data *a_start, int cnt)
+t_sort			*ft_find_big_small(t_data *a_start, int cnt)
 {
 	t_data		*temp;
 	t_sort		*out;
