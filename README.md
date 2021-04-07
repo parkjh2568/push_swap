@@ -9,5 +9,13 @@
 
 
 -----
+```
+git clone https://github.com/parkjh2568/7.push_swap.git
+cd 7.push_swap
+make re
+sh test_file.sh
+```
 
+
+-----
 ![](https://user-images.githubusercontent.com/62925498/113872700-1168f080-97ef-11eb-9f32-79544764fea0.gif)
