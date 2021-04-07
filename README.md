@@ -1,3 +1,5 @@
+[return intro](https://github.com/parkjh2568/intro#7-push_swap)
+
 # 7.push_swap
 
 ------
