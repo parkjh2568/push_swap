@@ -8,6 +8,8 @@
 [자세한 서브젝트 내용](https://github.com/parkjh2568/7.push_swap/wiki/%EC%84%9C%EB%B8%8C%EC%A0%9D%ED%8A%B8)
 
 
+(print_data 함수는 데이터가 정렬되는과정을 눈으로 보기위한 임시함수임으로 normV3폼에 맞지 않음)
+
 -----
 ```
 git clone https://github.com/parkjh2568/7.push_swap.git
