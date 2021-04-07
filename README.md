@@ -11,7 +11,7 @@
 -----
 ```
 git clone https://github.com/parkjh2568/7.push_swap.git
-cd 7.push_swap
+cd 7.push_swap/push_swap
 make re
 sh test_file.sh
 ```
